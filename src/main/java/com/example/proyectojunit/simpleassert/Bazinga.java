@@ -5,7 +5,11 @@ import java.util.Map;
 
 public class Bazinga {
 
-    public static Map<String, String> reglas = buildElements();
+    public Map<String, String> reglas;
+
+    public Bazinga() {
+        reglas = buildElements();
+    }
 
     public String duelo(String sheldon, String raj) {
         String ganador = "Jugar de nuevo";
@@ -17,13 +21,18 @@ public class Bazinga {
         return ganador;
     }
 
-    public static Map<String, String> buildElements() {
+    public void recargarReglas () {
+        this.reglas = buildElements();
+        System.out.println("las reglas se cargaron de nuevo");
+    }
+
+    private Map<String, String> buildElements() {
         Map<String, String> elements = new HashMap<>();
         elements.put("tijeras", "papel lagarto");
         elements.put("papel", "piedra Spock");
         elements.put("piedra", "lagarto tijeras");
         elements.put("lagarto", "Spock papel");
-        elements.put("Spock", "tijeras pedra");
+        elements.put("Spock", "tijeras piedra");
         return elements;
     }
 }
